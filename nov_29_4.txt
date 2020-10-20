@@ -1,0 +1,124 @@
+- start a new container with a name 
+  > docker container run -itd --name httpd_container httpd
+
+- start a new container with a name with port forwarding
+  - local machine's 9090 port will forward all the incoming requests to the container on port 80
+
+  > docker container run -itd --name httpd_container -p 9090:80 httpd
+
+
+- start a new container with a name with port forwarding and with attached volume 
+  
+  > docker container run -itd --name <container name> -p <local port>:<container port> -v <local directory path>:<container directory path> <image name>
+  
+  > docker container run -itd --name mydb -p 9099:3306 -v /home/amitk/mean/db/mydb_contents:/var/lib/mysql mydb
+
+
+- to stop container
+  > docker container stop <name/id>
+
+- to remove a stopped container
+  > docker container rm <name/id>
+
+- to remove a running container
+  > docker container rm <name/id> --force
+
+
+* mysql
+
+- start a mysql container with 
+  - 9099:3306 port forwarding
+  - 'root' as root user's password 
+  - 'empdb' as the database
+
+  > docker container run --name mydb -itd -p 9099:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=empdb  mysql:5.7
+
+
+- to connect to the mysql db inside the container
+
+  > mysql -u root --port 9099 --protocol tcp -p
+
+
+
+
+
+
+
+
+
+
+
+* Dockerfile
+- used to create a custom image
+- custom image = base image + customization 
+- base image has to get downloaded from docker hub
+- customisation => the code which will run inside the container 
+- * custom image can NOT be created without base image
+- Format
+ 
+  <command> <paramaters>
+
+
+* Dockerfile commands
+
+- FROM
+  - used to specify the base image
+  - e.g. FROM httpd
+
+- COPY
+  - used to copy the files from local machine to the container
+  - syntax
+ 
+    COPY <local file path> <container destination file path>
+
+  - e.g.
+
+    COPY index.html /usr/local/apache2/htdocs/
+
+
+- RUN
+  - used to execute the command(s) at the time of building the image
+
+- CMD
+  - used to execute the command(s) at the time of starting the container
+
+- EXPOSE
+  - used to expose a port for outsiders 
+  - e.g.
+
+    EXPOSE 80
+
+- WORKDIR
+  - used to set a work directory
+  - once set, you can use (.) to refer the work directory
+  - e.g. WORKDIR /app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

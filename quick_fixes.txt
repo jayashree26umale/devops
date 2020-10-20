@@ -1,0 +1,10 @@
+https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
+
+> sudo apt-get install curl
+> curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+> sudo apt-get update
+> sudo apt-get install nodejs
+
+https://angular.io/guide/setup-local
+
+> npm install -g @angular/cli

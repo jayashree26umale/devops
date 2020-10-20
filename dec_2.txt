@@ -1,0 +1,48 @@
+- data
+  - raw and meaningless
+  - e.g.
+
+    Person1, 40, pune, 98234535543
+
+- information
+  - meaningful
+  - e.g.
+
+    name: Person1,
+    age: 40
+    address: pune
+    phone: 98234535543
+
+- conversion of raw data into meaningful information
+  - use a syntax/format
+  - e.g.
+    
+    - XML
+
+      <person>
+         <name>person1</name>
+         <age>40</age>
+         <address>pune</address>
+         <phone>98234535543</phone>
+      </person>
+
+
+    - JSON
+
+      {
+         "name": "person1",
+         "age": 40,
+         "address": "pune",
+         "phone": 98234535543
+      }
+
+
+
+
+
+
+
+
+
+
+
